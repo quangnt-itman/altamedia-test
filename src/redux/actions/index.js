@@ -30,6 +30,7 @@ const actFetchComments = ( data ) => ( {
   data
 } );
 const actFetchListComments = ( postId ) => {
+  console.log( postId );
   return ( dispatch ) => {
     // console.log( dispatch );
     axios( {

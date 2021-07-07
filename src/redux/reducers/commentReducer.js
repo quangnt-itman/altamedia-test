@@ -8,7 +8,7 @@ export const commentReducer = ( state = initialState, action ) => {
 	switch ( action.type ) {
 		case FETCH_COMMENTS:
 			state.comments = action.data;
-			// console.log( state.comments );
+			console.log( state.comments );
 			return { ...state };
 
 

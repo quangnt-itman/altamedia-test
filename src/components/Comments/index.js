@@ -9,11 +9,35 @@ export class Comments extends Component {
 	// }
 
 	renderComments () {
+		console.log( this );
 		let { comments } = this.props;
+		console.log( { comments } );
 		if ( comments && comments.length > 0 ) {
-			return comments.filter( ( comment, index ) => {
+			return comments.map( ( comment, index ) => {
 				return (
-					<p>{ comment.body }</p>
+
+					<div className="card my-4">
+						<div className="card-header">
+							from: <span className="mt-0 mb-1">{ comment.email }</span>
+						</div>
+						<div className="card-body">
+							<blockquote className="blockquote mb-0">
+								<p>{ comment.body }</p>
+								<footer className="blockquote-footer">name - <cite title="Source Title"><small>{ comment.name }</small></cite></footer>
+							</blockquote>
+						</div>
+					</div>
+
+
+					// <div className="media">
+					// 	<div className="media-body">
+					// 		<h5 className="mt-0 mb-1">{ comment.name }</h5>
+					// 		<small>{ comment.email }</small>
+					// 		<p>{ comment.body }</p>
+					// 	</div>
+
+					// </div>
+
 				);
 			} );
 		} else {
@@ -38,19 +62,18 @@ export class Comments extends Component {
 							</div>
 							<div className="modal-footer">
 								<button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="button" className="btn btn-primary">Save changes</button>
+								{/* <button type="button" className="btn btn-primary">Save changes</button> */}
 							</div>
 						</div>
 					</div>
 				</div>
-				{ this.renderComments() }
 			</>
 		);
 	}
 }
 
 const mapStateToProps = ( state ) => ( {
-	commnets: state.postReducer.comments
+	comments: state.commentReducer.comments
 } );
 
 const mapDispatchToProps = dispatch => ( {
