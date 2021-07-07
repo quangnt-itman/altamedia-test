@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+// import { Navbar } from './components/Navbar';
+import { routesHome } from './routes';
+import HomeTemplate from './templates/HomeTemplate';
 
-function App() {
+
+
+
+function App ( props ) {
+  // console.log( props );
+
+  const showHome = ( routes ) => {
+    if ( routes && routes.length > 0 ) {
+      return routes.map( ( item, index ) => ( <HomeTemplate key={ index } exact={ item.exact } path={ item.path } Component={ item.component } /> ) );
+    }
+  };
+
+  // console.log( showHome( routesHome ) );
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      {/* <Navbar /> */ }
+      <Switch>
+        { showHome( routesHome ) }
+        {/* <Route path="/" exact={ true } component={ HomePage } />
+        <Route path="/contact" component={ ContactPage } />
+        <Route path="/about" component={ AboutPage } /> */}
+      </Switch>
+    </BrowserRouter>
+
   );
 }
 
