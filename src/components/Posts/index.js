@@ -18,7 +18,7 @@ export class Posts extends Component {
 							<div className="card-body">
 								<h3 className="card-title">{ item.title }</h3>
 								<p className="card-text">{ item.body }</p>
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={ () => this.props.fetchListComments( item.id ) } >See Components</button>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={ () => this.props.fetchListComments( item.id ) } >See Comments</button>
 							</div>
 						</div>
 					</div>

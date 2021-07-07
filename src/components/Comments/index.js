@@ -28,16 +28,6 @@ export class Comments extends Component {
 						</div>
 					</div>
 
-
-					// <div className="media">
-					// 	<div className="media-body">
-					// 		<h5 className="mt-0 mb-1">{ comment.name }</h5>
-					// 		<small>{ comment.email }</small>
-					// 		<p>{ comment.body }</p>
-					// 	</div>
-
-					// </div>
-
 				);
 			} );
 		} else {
